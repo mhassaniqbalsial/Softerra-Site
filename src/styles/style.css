@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS Custom Properties (Design System) */
+:root {
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #ffffff;
+    --bg-header: #ffffff;
+    --bg-surface: #f8fafc;
+
+    /* Text Colors */
+    --text-primary: #333333;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --text-inverse: #ffffff;
+    --text-accent: #667eea;
+
+    /* Font Sizes */
+    --font-xs: 0.75rem;
+    --font-sm: 16px;
+    --font-base: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 1.875rem;
+    --font-4xl: 64px;
+
+    /* Button Colors */
+    --btn-primary-bg: #dc2626;
+    --btn-primary-hover: #b91c1c;
+    --btn-primary-text: #ffffff;
+    --btn-secondary-bg: #667eea;
+    --btn-secondary-hover: #5a67d8;
+    --btn-secondary-text: #ffffff;
+
+    /* Theme Toggle Colors */
+    --toggle-bg-inactive: #cccccc;
+    --toggle-bg-active: rgba(0, 0, 0, 0.4);
+    --toggle-slider: #ffffff;
+
+    /* Border Colors */
+    --border-light: rgba(0, 0, 0, 0.1);
+    --border-dark: rgba(255, 255, 255, 0.1);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+    --bg-primary: #0f1419;
+    --bg-secondary: #1a2332;
+    --bg-header: #1a2332;
+    --bg-surface: #232937;
+
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-muted: #9ca3af;
+    --text-inverse: #333333;
+    --text-accent: #667eea;
+
+    --btn-primary-bg: #667eea;
+    --btn-primary-hover: #5a67d8;
+    --btn-secondary-bg: #dc2626;
+    --btn-secondary-hover: #b91c1c;
+
+    --border-light: rgba(255, 255, 255, 0.1);
+}
+
+/* Light Theme Variables */
+body.light-theme {
+    --bg-primary: #ffffff;
+    --bg-secondary: #ffffff;
+    --bg-header: #ffffff;
+    --bg-surface: #f8fafc;
+
+    --text-primary: #333333;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --text-inverse: #ffffff;
+    --text-accent: #667eea;
+
+    --btn-primary-bg: #dc2626;
+    --btn-primary-hover: #b91c1c;
+    --btn-secondary-bg: #667eea;
+    --btn-secondary-hover: #5a67d8;
+
+    --border-light: rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    transition: all 0.3s ease;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: var(--font-base);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+
+/* #Main Content Styles */
+.main-content {
+    color: var(--text-primary);
+}
+
+/* Utility Classes */
+.text-xs {
+    font-size: var(--font-xs);
+}
+
+.text-sm {
+    font-size: var(--font-sm);
+}
+
+.text-base {
+    font-size: var(--font-base);
+}
+
+.text-lg {
+    font-size: var(--font-lg);
+}
+
+.text-xl {
+    font-size: var(--font-xl);
+}
+
+.text-2xl {
+    font-size: var(--font-2xl);
+}
+
+.text-3xl {
+    font-size: var(--font-3xl);
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-accent {
+    color: var(--text-accent);
+}
+
+.bg-primary {
+    background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.bg-surface {
+    background-color: var(--bg-surface);
+}
+
+/* Button Variants */
+.btn-primary {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--btn-secondary-hover);
+    transform: translateY(-1px);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+}
