@@ -13,6 +13,10 @@
     text-align: center;
 }
 
+p {
+    display: none;
+}
+
 /* Upwork Box Styles */
 .ST-Hero-upwork-box-wrapper {
     background: #00AEEF;
