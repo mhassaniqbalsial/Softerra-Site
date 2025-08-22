@@ -2,13 +2,11 @@
 .ST-header {
     padding: 1rem 0;
     transition: all 0.3s ease;
-    border-bottom: 1px solid var(--border-light);
     position: sticky;
     top: 0;
     z-index: 1000;
     background-color: var(--bg-header);
     color: var(--text-primary);
-    box-shadow: var(--shadow-md);
 }
 
 .header-container {
@@ -248,7 +246,7 @@ body.light-theme .ST-header .dropdown-menu {
         font-size: var(--font-xs);
     }
 
-    .cta-button {
+    .ST-header .cta-button {
         padding: 0.6rem 1.2rem;
         font-size: var(--font-xs);
     }
@@ -506,13 +504,6 @@ body.light-theme .ST-header .dropdown-menu {
         justify-self: center;
     }
 
-    .cta-button {
-        grid-column: 3;
-        justify-self: end;
-        padding: 0.6rem 1rem;
-        font-size: 0.875rem;
-    }
-
     /* Header adjustments */
     .ST-header {
         padding: 0.75rem 0;
@@ -524,9 +515,10 @@ body.light-theme .ST-header .dropdown-menu {
         width: 280px;
     }
 
-    .cta-button {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.8rem;
+    .ST-header .cta-button {
+        max-width: 40px;
+        padding: 8px;
+        font-size: 10px;
     }
 
     .logo {

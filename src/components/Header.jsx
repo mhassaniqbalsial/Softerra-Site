@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/style.css';
 import '../styles/Header.css';
+import logo from '../assets/softerra-logo.svg';
 
 const Header = () => {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -44,7 +45,7 @@ const Header = () => {
                         {/* Logo */}
                         <div className="logo">
                             <div className="logo-icon">
-                                <img src="/src/assets/logo.png" alt="Softerra Logo" width="60" height="60" />
+                                <img src={logo} alt="Softerra Logo" width="60" height="60" />
                             </div>
                         </div>
 
@@ -93,7 +94,6 @@ const Header = () => {
                                 />
                                 <label htmlFor="theme-toggle" className="theme-toggle-label">
                                     <span className="theme-toggle-slider"></span>
-                                    <span className="sr-only">Toggle dark mode</span>
                                 </label>
                             </div>
                             <button className="cta-button">
@@ -144,7 +144,6 @@ const Header = () => {
                             />
                             <label htmlFor="mobile-theme-toggle" className="theme-toggle-label">
                                 <span className="theme-toggle-slider"></span>
-                                <span className="sr-only">Toggle dark mode</span>
                             </label>
                         </div>
                     </div>

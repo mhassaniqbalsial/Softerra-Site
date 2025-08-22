@@ -49,9 +49,9 @@
 
 /* Dark Theme Variables */
 body.dark-theme {
-    --bg-primary: #0f1419;
+    --bg-primary: #091C26;
     --bg-secondary: #1a2332;
-    --bg-header: #1a2332;
+    --bg-header: #091C26;
     --bg-surface: #232937;
 
     --text-primary: #ffffff;
