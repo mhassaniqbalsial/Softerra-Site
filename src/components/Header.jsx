@@ -45,7 +45,7 @@ const Header = () => {
                         {/* Logo */}
                         <div className="logo">
                             <div className="logo-icon">
-                                <img src={logo} alt="Softerra Logo" />
+                                <img src={logo} alt="Softerra Logo" width="60" height="60" />
                             </div>
                         </div>
 
