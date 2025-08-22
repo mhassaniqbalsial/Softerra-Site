@@ -97,6 +97,36 @@ const Portfolio = () => {
         };
     }, []);
 
+    // Preload critical images (add this useEffect after the Splide initialization)
+    useEffect(() => {
+        const preloadCriticalImages = () => {
+            // Array of critical images to preload
+            const criticalImages = [
+                { src: project1, priority: 'high' },
+                { src: project2, priority: 'high' },
+                { src: project3, priority: 'auto' },
+                { src: project4, priority: 'auto' }
+            ];
+
+            criticalImages.forEach((image, index) => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.href = image.src;
+                link.as = 'image';
+                link.type = 'image/webp';
+
+                // Add fetchpriority for the first two images
+                if (index < 2) {
+                    link.fetchPriority = image.priority;
+                }
+
+                document.head.appendChild(link);
+            });
+        };
+
+        preloadCriticalImages();
+    }, []);
+
     // Get filtered projects
     const getFilteredProjects = () => {
         if (currentFilter === 'all') {
@@ -173,6 +203,11 @@ const Portfolio = () => {
                                             src={project.image}
                                             alt={project.alt}
                                             className="ST-portfolio-project-image"
+                                            width="600"
+                                            height="450"
+                                            loading={project.id <= 3 ? "eager" : "lazy"}
+                                            decoding="async"
+                                            fetchpriority={project.id === 1 ? "high" : "auto"}
                                         />
                                     </div>
                                 </div>
