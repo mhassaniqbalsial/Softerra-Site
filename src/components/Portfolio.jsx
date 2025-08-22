@@ -1,24 +1,38 @@
 import { useState, useEffect } from 'react';
 import '../styles/Portfolio.css';
 
+// Import your images at the top
+import project1 from '../assets/project-1.webp';
+import project2 from '../assets/project-2.webp';
+import project3 from '../assets/project-3.webp';
+import project4 from '../assets/project-4.webp';
+import project5 from '../assets/project-5.webp';
+import project6 from '../assets/project-6.webp';
+// import project7 from '../assets/project-7.webp';
+// import project8 from '../assets/project-8.webp';
+// import project9 from '../assets/project-9.webp';
+// import project10 from '../assets/project-10.webp';
+// import project11 from '../assets/project-11.webp';
+// import project12 from '../assets/project-12.webp';
+
 const Portfolio = () => {
     const [currentFilter, setCurrentFilter] = useState('all');
     const [itemsToShow, setItemsToShow] = useState(6);
 
-    // Portfolio projects data
+    // Portfolio projects data with imported images
     const projects = [
-        { id: 1, category: ['all', 'business'], image: 'https://placehold.co/600x450/e2e8f0/1e293b?text=Project+1', alt: 'Project 1' },
-        { id: 2, category: ['all', 'ecommerce'], image: 'https://placehold.co/600x450/f0b138/ffffff?text=Project+2', alt: 'Project 2' },
-        { id: 3, category: ['all', 'business'], image: 'https://placehold.co/600x450/c8d6cf/1e293b?text=Project+3', alt: 'Project 3' },
-        { id: 4, category: ['all', 'custom'], image: 'https://placehold.co/600x450/f8d1e4/1e293b?text=Project+4', alt: 'Project 4' },
-        { id: 5, category: ['all', 'landing'], image: 'https://placehold.co/600x450/d1ff8a/1e293b?text=Project+5', alt: 'Project 5' },
-        { id: 6, category: ['all', 'ecommerce'], image: 'https://placehold.co/600x450/ff5757/ffffff?text=Project+6', alt: 'Project 6' },
-        { id: 7, category: ['all', 'business'], image: 'https://placehold.co/600x450/e2e8f0/1e293b?text=Project+7', alt: 'Project 7' },
-        { id: 8, category: ['all', 'custom'], image: 'https://placehold.co/600x450/f0b138/ffffff?text=Project+8', alt: 'Project 8' },
-        { id: 9, category: ['all', 'landing'], image: 'https://placehold.co/600x450/c8d6cf/1e293b?text=Project+9', alt: 'Project 9' },
-        { id: 10, category: ['all', 'ecommerce'], image: 'https://placehold.co/600x450/f8d1e4/1e293b?text=Project+10', alt: 'Project 10' },
-        { id: 11, category: ['all', 'business'], image: 'https://placehold.co/600x450/d1ff8a/1e293b?text=Project+11', alt: 'Project 11' },
-        { id: 12, category: ['all', 'custom'], image: 'https://placehold.co/600x450/ff5757/ffffff?text=Project+12', alt: 'Project 12' }
+        { id: 1, category: ['all', 'business'], image: project1, alt: 'Project 1' },
+        { id: 2, category: ['all', 'ecommerce'], image: project2, alt: 'Project 2' },
+        { id: 3, category: ['all', 'business'], image: project3, alt: 'Project 3' },
+        { id: 4, category: ['all', 'custom'], image: project4, alt: 'Project 4' },
+        { id: 5, category: ['all', 'landing'], image: project5, alt: 'Project 5' },
+        { id: 6, category: ['all', 'ecommerce'], image: project6, alt: 'Project 6' },
+        // { id: 7, category: ['all', 'business'], image: project7, alt: 'Project 7' },
+        // { id: 8, category: ['all', 'custom'], image: project8, alt: 'Project 8' },
+        // { id: 9, category: ['all', 'landing'], image: project9, alt: 'Project 9' },
+        // { id: 10, category: ['all', 'ecommerce'], image: project10, alt: 'Project 10' },
+        // { id: 11, category: ['all', 'business'], image: project11, alt: 'Project 11' },
+        // { id: 12, category: ['all', 'custom'], image: project12, alt: 'Project 12' }
     ];
 
     const tabs = [
