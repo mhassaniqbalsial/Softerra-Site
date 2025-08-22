@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy } from 'react';
 import '../styles/Portfolio.css';
 
 // Import your images at the top
@@ -162,19 +162,14 @@ const Portfolio = () => {
                                     data-index={project.id}
                                 >
                                     <div className="ST-portfolio-project-image-wrapper">
-                                        {/* Use picture element for better optimization */}
-                                        <picture>
-                                            <img
-                                                src={project.image}
-                                                alt={project.alt}
-                                                className="ST-portfolio-project-image"
-                                                width="600"
-                                                height="450"
-                                                loading={index < 3 ? "eager" : "lazy"}
-                                                decoding={index < 3 ? "sync" : "async"}
-                                                fetchpriority={index === 0 ? "high" : "auto"}
-                                            />
-                                        </picture>
+                                        <img
+                                            src={project.image}
+                                            alt={project.alt}
+                                            className="ST-portfolio-project-image"
+                                            width="600"
+                                            height="450"
+                                            loading="lazy"
+                                        />
                                     </div>
                                 </div>
                             ))}
