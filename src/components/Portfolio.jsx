@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, lazy } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../styles/Portfolio.css';
 
 // Import your images at the top
@@ -168,7 +168,9 @@ const Portfolio = () => {
                                             className="ST-portfolio-project-image"
                                             width="600"
                                             height="450"
-                                            loading="lazy"
+                                            loading="eager"
+                                            decoding="async"
+                                            fetchpriority="high"
                                         />
                                     </div>
                                 </div>

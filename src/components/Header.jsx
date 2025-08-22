@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/style.css';
 import '../styles/Header.css';
 import logo from '../assets/softerra-logo.svg';
@@ -7,13 +7,14 @@ const Header = () => {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        // Apply theme to document body
-        document.body.className = isDarkTheme ? 'dark-theme' : 'light-theme';
-    }, [isDarkTheme]);
+    const updateTheme = (darkTheme) => {
+        document.body.className = darkTheme ? 'dark-theme' : 'light-theme';
+    };
 
     const toggleTheme = () => {
-        setIsDarkTheme(!isDarkTheme);
+        const newTheme = !isDarkTheme;
+        setIsDarkTheme(newTheme);
+        updateTheme(newTheme);
     };
 
     const toggleMobileMenu = () => {
