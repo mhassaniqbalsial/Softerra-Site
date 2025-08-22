@@ -192,8 +192,8 @@ p {
 @media (max-width: 768px) {
 
     .ST-Hero-section-main {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .ST-Hero-upwork-box-wrapper {
