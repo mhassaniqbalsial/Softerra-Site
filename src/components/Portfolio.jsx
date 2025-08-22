@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../styles/Portfolio.css';
 
 // Import your images at the top
@@ -8,16 +8,13 @@ import project3 from '../assets/project-3.webp';
 import project4 from '../assets/project-4.webp';
 import project5 from '../assets/project-5.webp';
 import project6 from '../assets/project-6.webp';
-// import project7 from '../assets/project-7.webp';
-// import project8 from '../assets/project-8.webp';
-// import project9 from '../assets/project-9.webp';
-// import project10 from '../assets/project-10.webp';
-// import project11 from '../assets/project-11.webp';
-// import project12 from '../assets/project-12.webp';
 
 const Portfolio = () => {
     const [currentFilter, setCurrentFilter] = useState('all');
     const [itemsToShow, setItemsToShow] = useState(6);
+    const tabsRef = useRef(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
 
     // Portfolio projects data with imported images
     const projects = [
@@ -27,12 +24,6 @@ const Portfolio = () => {
         { id: 4, category: ['all', 'custom'], image: project4, alt: 'Project 4' },
         { id: 5, category: ['all', 'landing'], image: project5, alt: 'Project 5' },
         { id: 6, category: ['all', 'ecommerce'], image: project6, alt: 'Project 6' },
-        // { id: 7, category: ['all', 'business'], image: project7, alt: 'Project 7' },
-        // { id: 8, category: ['all', 'custom'], image: project8, alt: 'Project 8' },
-        // { id: 9, category: ['all', 'landing'], image: project9, alt: 'Project 9' },
-        // { id: 10, category: ['all', 'ecommerce'], image: project10, alt: 'Project 10' },
-        // { id: 11, category: ['all', 'business'], image: project11, alt: 'Project 11' },
-        // { id: 12, category: ['all', 'custom'], image: project12, alt: 'Project 12' }
     ];
 
     const tabs = [
@@ -43,88 +34,38 @@ const Portfolio = () => {
         { filter: 'landing', label: 'Landing Pages' }
     ];
 
-    // Initialize Splide
-    useEffect(() => {
-        let currentSplideInstance = null;
-
-        const initSplide = async () => {
-            // Dynamically import Splide
-            const { Splide } = await import('@splidejs/splide');
-
-            const splide = new Splide('#portfolio-tabs-slider', {
-                perPage: 6,
-                perMove: 1,
-                gap: 16,
-                pagination: false,
-                arrows: false,
-                breakpoints: {
-                    991: {
-                        perPage: 4,
-                    },
-                    767: {
-                        perPage: 3,
-                        pagination: true,
-                    },
-                    480: {
-                        perPage: 2,
-                    }
-                }
+    // Simple horizontal scroll for tabs (replaces Splide)
+    const scrollTabs = (direction) => {
+        const container = tabsRef.current;
+        if (container) {
+            const scrollAmount = 200;
+            container.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
             });
+        }
+    };
 
-            splide.mount();
-            currentSplideInstance = splide;
-        };
+    // Check scroll position
+    const checkScrollPosition = () => {
+        const container = tabsRef.current;
+        if (container) {
+            setCanScrollLeft(container.scrollLeft > 0);
+            setCanScrollRight(
+                container.scrollLeft < container.scrollWidth - container.clientWidth - 10
+            );
+        }
+    };
 
-        // Load Splide CSS and JS
-        const loadSplide = () => {
-            // Load CSS
-            if (!document.querySelector('link[href*="splide"]')) {
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css';
-                document.head.appendChild(link);
-            }
-
-            initSplide();
-        };
-
-        loadSplide();
-
-        return () => {
-            if (currentSplideInstance) {
-                currentSplideInstance.destroy();
-            }
-        };
-    }, []);
-
-    // Preload critical images (add this useEffect after the Splide initialization)
     useEffect(() => {
-        const preloadCriticalImages = () => {
-            // Array of critical images to preload
-            const criticalImages = [
-                { src: project1, priority: 'high' },
-                { src: project2, priority: 'high' },
-                { src: project3, priority: 'auto' },
-                { src: project4, priority: 'auto' }
-            ];
+        const container = tabsRef.current;
+        if (container) {
+            container.addEventListener('scroll', checkScrollPosition);
+            // Check initial state
+            checkScrollPosition();
 
-            criticalImages.forEach((image, index) => {
-                const link = document.createElement('link');
-                link.rel = 'preload';
-                link.href = image.src;
-                link.as = 'image';
-                link.type = 'image/webp';
-
-                // Add fetchpriority for the first two images
-                if (index < 2) {
-                    link.fetchPriority = image.priority;
-                }
-
-                document.head.appendChild(link);
-            });
-        };
-
-        preloadCriticalImages();
+            return () => container.removeEventListener('scroll', checkScrollPosition);
+        }
     }, []);
 
     // Get filtered projects
@@ -169,46 +110,71 @@ const Portfolio = () => {
                         <h2 className="ST-portfolio-title-text">PORTFOLIO</h2>
                     </div>
 
-                    {/* Portfolio Tabs */}
+                    {/* Portfolio Tabs - Simplified without Splide */}
                     <div className="ST-portfolio-tabs-wrapper">
-                        <div className="splide" id="portfolio-tabs-slider">
-                            <div className="splide__track">
-                                <div className="splide__list">
+                        <div className="portfolio-tabs-container">
+                            {canScrollLeft && (
+                                <button
+                                    className="tab-scroll-btn tab-scroll-left"
+                                    onClick={() => scrollTabs('left')}
+                                    aria-label="Scroll tabs left"
+                                >
+                                    ←
+                                </button>
+                            )}
+
+                            <div
+                                className="portfolio-tabs-scroll"
+                                ref={tabsRef}
+                            >
+                                <div className="portfolio-tabs-list">
                                     {tabs.map((tab) => (
-                                        <li key={tab.filter} className="splide__slide ST-portfolio-tabs-slide">
-                                            <div
-                                                className={`ST-portfolio-tab-button ${currentFilter === tab.filter ? 'active' : ''}`}
-                                                onClick={() => handleTabClick(tab.filter)}
-                                            >
-                                                <div className="ST-portfolio-tab-text">{tab.label}</div>
-                                            </div>
-                                        </li>
+                                        <div
+                                            key={tab.filter}
+                                            className={`ST-portfolio-tab-button ${currentFilter === tab.filter ? 'active' : ''}`}
+                                            onClick={() => handleTabClick(tab.filter)}
+                                        >
+                                            <div className="ST-portfolio-tab-text">{tab.label}</div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
+
+                            {canScrollRight && (
+                                <button
+                                    className="tab-scroll-btn tab-scroll-right"
+                                    onClick={() => scrollTabs('right')}
+                                    aria-label="Scroll tabs right"
+                                >
+                                    →
+                                </button>
+                            )}
                         </div>
                     </div>
 
                     {/* Portfolio Projects Grid */}
                     <div className="ST-portfolio-projects-grid-wrapper">
                         <div className="ST-portfolio-projects-grid">
-                            {visibleProjects.map((project) => (
+                            {visibleProjects.map((project, index) => (
                                 <div
                                     key={project.id}
                                     className="ST-portfolio-project-item active show"
                                     data-index={project.id}
                                 >
                                     <div className="ST-portfolio-project-image-wrapper">
-                                        <img
-                                            src={project.image}
-                                            alt={project.alt}
-                                            className="ST-portfolio-project-image"
-                                            width="600"
-                                            height="450"
-                                            loading={project.id <= 3 ? "eager" : "lazy"}
-                                            decoding="async"
-                                            fetchpriority={project.id === 1 ? "high" : "auto"}
-                                        />
+                                        {/* Use picture element for better optimization */}
+                                        <picture>
+                                            <img
+                                                src={project.image}
+                                                alt={project.alt}
+                                                className="ST-portfolio-project-image"
+                                                width="600"
+                                                height="450"
+                                                loading={index < 3 ? "eager" : "lazy"}
+                                                decoding={index < 3 ? "sync" : "async"}
+                                                fetchpriority={index === 0 ? "high" : "auto"}
+                                            />
+                                        </picture>
                                     </div>
                                 </div>
                             ))}
@@ -218,24 +184,24 @@ const Portfolio = () => {
                     {/* Load More / Show Less Buttons */}
                     {hasMoreItems && (
                         <div className="ST-portfolio-load-more-wrapper">
-                            <div
+                            <button
                                 className="ST-portfolio-load-more-button"
                                 onClick={handleLoadMore}
                             >
                                 <div className="ST-portfolio-load-more-text">Load More</div>
-                            </div>
+                            </button>
                         </div>
                     )}
 
                     {showShowLess && (
                         <div className="ST-portfolio-load-more-wrapper">
-                            <div
+                            <button
                                 className="ST-portfolio-show-less-button"
                                 style={{ display: 'flex' }}
                                 onClick={handleShowLess}
                             >
                                 <div className="ST-portfolio-show-less-text">Show Less</div>
-                            </div>
+                            </button>
                         </div>
                     )}
                 </div>
