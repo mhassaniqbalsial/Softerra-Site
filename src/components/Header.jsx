@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/style.css';
 import '../styles/Header.css';
-import logo from '../assets/softerra-logo.svg';
 
 const Header = () => {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
