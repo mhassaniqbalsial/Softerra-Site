@@ -89,9 +89,11 @@ const Header = () => {
                                     className="theme-toggle-input"
                                     checked={isDarkTheme}
                                     onChange={toggleTheme}
+                                    aria-label="Toggle dark mode"
                                 />
                                 <label htmlFor="theme-toggle" className="theme-toggle-label">
                                     <span className="theme-toggle-slider"></span>
+                                    <span className="sr-only">Toggle dark mode</span>
                                 </label>
                             </div>
                             <button className="cta-button">
@@ -138,9 +140,11 @@ const Header = () => {
                                 className="theme-toggle-input"
                                 checked={isDarkTheme}
                                 onChange={toggleTheme}
+                                aria-label="Toggle dark mode"
                             />
                             <label htmlFor="mobile-theme-toggle" className="theme-toggle-label">
                                 <span className="theme-toggle-slider"></span>
+                                <span className="sr-only">Toggle dark mode</span>
                             </label>
                         </div>
                     </div>
