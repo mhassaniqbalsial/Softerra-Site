@@ -164,10 +164,16 @@ const Portfolio = () => {
                                     <div className="ST-portfolio-project-image-wrapper">
                                         <img
                                             src={project.image}
+                                            srcSet={`
+                                                ${project.image.replace('.webp', '-189w.webp')} 189w,
+                                                ${project.image.replace('.webp', '-378w.webp')} 378w,
+                                                ${project.image.replace('.webp', '-756w.webp')} 756w
+                                            `}
+                                            sizes="(max-width: 480px) 189px, (max-width: 768px) 378px, 756px"
+                                            width="189"
+                                            height="136"
                                             alt={project.alt}
                                             className="ST-portfolio-project-image"
-                                            width="600"
-                                            height="450"
                                             loading="eager"
                                             decoding="async"
                                             fetchpriority="high"
