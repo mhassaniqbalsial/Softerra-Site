@@ -155,7 +155,7 @@ const Portfolio = () => {
                     {/* Portfolio Projects Grid */}
                     <div className="ST-portfolio-projects-grid-wrapper">
                         <div className="ST-portfolio-projects-grid">
-                            {visibleProjects.map((project, index) => (
+                            {visibleProjects.map((project) => (
                                 <div
                                     key={project.id}
                                     className="ST-portfolio-project-item active show"
