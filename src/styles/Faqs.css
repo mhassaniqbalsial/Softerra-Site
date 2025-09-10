@@ -1,0 +1,196 @@
+
+    .ST-landing-faq-main {
+        padding: 60px 0;
+    }
+
+    .ST-landing-faq-header-wrapper {
+        width: 100%;
+        max-width: 380px;
+        text-align: start;
+    }
+
+    .ST-landing-faq-wrapper-main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .ST-landing-faq-badge-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .ST-landing-faq-badge {
+        background: #00AEEF;
+        color: white;
+        font-family: 'Roboto';
+        font-weight: 500;
+        font-size: 20px;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    .dark-theme .ST-landing-faq-badge {
+        background: #4F45C1;
+    }
+
+    .ST-landing-faq-title-wrapper {
+        margin-bottom: 16px;
+    }
+
+    .ST-landing-faq-title {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 1.2;
+        color: var(--text-primary);
+    }
+
+    .ST-landing-faq-description {
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-primary);
+    }
+
+    .ST-landing-faq-content-wrapper {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .ST-landing-faq-item {
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .dark-theme .ST-landing-faq-item {
+        background: #2C3F46;
+        border: 1px solid #6F7C74;
+    }
+
+    .ST-landing-faq-question-wrapper {
+        padding: 24px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .ST-landing-faq-question {
+        font-family: Roboto;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.5;
+        color: #000;
+        margin-right: 16px;
+        flex: 1 1;
+        text-align: start;
+    }
+
+    .dark-theme .ST-landing-faq-question {
+        color: #fff;
+    }
+
+    .ST-landing-faq-icon-wrapper {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+    }
+
+    .ST-landing-faq-icon {
+        width: 16px;
+        height: 16px;
+        stroke: #000;
+        stroke-width: 2;
+        fill: none;
+    }
+
+    .dark-theme .ST-landing-faq-icon {
+        stroke: #fff;
+    }
+
+    .ST-landing-faq-answer-wrapper {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .ST-landing-faq-answer-content {
+        padding: 0 24px 24px 24px;
+    }
+
+    .ST-landing-faq-answer {
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #000;
+        text-align: start;
+    }
+
+    .dark-theme .ST-landing-faq-answer {
+        color: #fff;
+    }
+
+    .ST-landing-faq-item.active .ST-landing-faq-answer-wrapper {
+        max-height: 1000px;
+    }
+
+    .ST-landing-faq-item.active .ST-landing-faq-icon-wrapper {
+        transform: rotate(180deg);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .ST-landing-faq-main {
+            padding: 40px 0;
+        }
+
+        .ST-landing-faq-header-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .ST-landing-faq-wrapper-main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .ST-landing-faq-title {
+            font-size: 32px;
+        }
+
+        .ST-landing-faq-badge {
+            font-size: 16px;
+        }
+
+        .ST-landing-faq-description {
+            font-size: 16px;
+        }
+
+        .ST-landing-faq-question-wrapper {
+            padding: 12px;
+        }
+
+        .ST-landing-faq-question {
+            font-size: 16px;
+        }
+
+        .ST-landing-faq-answer-content {
+            padding: 0 12px 12px 12px;
+        }
+
+        .ST-landing-faq-answer {
+            font-size: 14px;
+        }
+    }
