@@ -7,6 +7,10 @@ import Services from './components/Services';
 import Map from './components/Map';
 import Faqs from './components/Faqs';
 import Partners from './components/Partners';
+import Teams from './components/Teams';
+import Contact from './components/Contact';
+import Newsletter from './components/Newsletter';
+import Footer from './components/Footer';
 
 function App() { 
   return (
@@ -19,7 +23,11 @@ function App() {
         <Map />
         <Faqs />
         <Partners />
+        <Teams />
+        <Contact />
+        <Newsletter />
       </main>
+      <Footer />
     </div>
   );
 }

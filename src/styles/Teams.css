@@ -1,0 +1,151 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    .PF-team-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        text-align: center;
+    }
+
+    .PF-team-wrapper {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 40px;
+        border: 1px solid #000;
+        border-radius: 32px;
+    }
+
+    .PF-team-images-sub {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .PF-team-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px; 
+        padding: 20px 0;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .PF-team-image-container {
+        position: relative;
+        transition: all 0.6s; 
+        z-index: 1;
+    }
+
+    .PF-team-image-container:not(:first-child) {
+        margin-left: -20px;
+    }
+
+    .PF-team-image-container:hover {
+        transform: translateY(12px);
+        z-index: 9;
+    }
+
+    .PF-team-image {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        cursor: pointer;
+        filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
+    }
+
+    .name {
+        position: absolute;
+        background-color: #ff4d4d;
+        color: #fff;
+        font-family: 'Bebas Neue', cursive;
+        padding: 10px 20px;
+        border-radius: 100px;
+        bottom: -54px;
+        left: 50%;
+        white-space: nowrap;
+        transform: translate(-50%, -50px);
+        letter-spacing: 1px;
+        font-size: 12px;
+        line-height: normal;
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    .name::before {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background-color: #ff4d4d;
+        top: 0; 
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .PF-team-image-container:hover .name {
+        opacity: 1;
+        transform: translateX(-50%);
+        box-shadow: 0 10px 20px rgba(86, 86, 198, 0.3);
+    }
+
+    .PF-team-title {
+        font-size: 40px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #121212;
+        padding-bottom: 1rem;
+    }
+
+    .PF-team-description {
+        font-size: 18px;
+        color: #6F7C74;
+        margin: 0; 
+        line-height: 1.5;
+    }
+
+    .PF-team-button {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: #121212;
+        font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 100px;
+        font-weight: 500;
+    } 
+
+    .PF-team-button:hover {
+        background-color: #333;
+    }
+
+    @media (max-width: 768px) {
+        .PF-container {
+                padding: 0 20px;
+            }
+        .PF-team-wrapper {
+        padding: 24px;
+    } 
+        .PF-team-section {
+            padding-top: 40px; 
+            padding-bottom: 40px;
+        }
+
+        .PF-team-title {
+            font-size: 2rem;
+        } 
+
+        .PF-team-description {
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+
+        .PF-team-image { 
+            width: 50px;
+            height: 50px;
+        }
+        .PF-team-images {
+            gap: 5px;
+        }
+    }
