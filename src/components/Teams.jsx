@@ -6,6 +6,8 @@ import aqib from '../assets/aqib.png';
 import sammi from '../assets/sam.svg';
 import hamayun from '../assets/hamayun.svg';
 import hussain from '../assets/hussain.png';
+import ahsan from '../assets/ahsan.png';
+import khubaib from '../assets/khubaib.png';
 import '../styles/Teams.css';
 
 const Teams = () => {
@@ -48,7 +50,7 @@ const Teams = () => {
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src="" alt="ahsan" className="PF-team-image" />
+                                <img src={ahsan} alt="ahsan" className="PF-team-image" />
                                 <span className="name">Ahsan<br /> UI/UX Designer</span>
                             </div> 
 
@@ -58,7 +60,7 @@ const Teams = () => {
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src="" alt="khubaib" className="PF-team-image" />
+                                <img src={khubaib} alt="khubaib" className="PF-team-image" />
                                 <span className="name">Khubaib<br /> Internee</span>
                             </div>
                         </div>

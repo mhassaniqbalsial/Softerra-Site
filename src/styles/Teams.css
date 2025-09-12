@@ -15,6 +15,10 @@
         border-radius: 32px;
     }
 
+    .dark-theme .PF-team-wrapper {
+        background: #2C3F46;
+    }
+
     .PF-team-images-sub {
         display: flex;
         flex-direction: column;
@@ -33,6 +37,7 @@
     }
 
     .PF-team-image-container {
+        display: flex;
         position: relative;
         transition: all 0.6s; 
         z-index: 1;
@@ -44,6 +49,8 @@
 
     .PF-team-image-container:hover {
         transform: translateY(12px);
+        transform: translateX(-12px);
+        transition: all 0.3s ease;
         z-index: 9;
     }
 
@@ -94,13 +101,13 @@
         font-size: 40px;
         line-height: 1.2;
         font-weight: 600;
-        color: #121212;
+        color: var(--text-primary);
         padding-bottom: 1rem;
     }
 
     .PF-team-description {
         font-size: 18px;
-        color: #6F7C74;
+        color: var(--text-primary);
         margin: 0; 
         line-height: 1.5;
     }
@@ -108,7 +115,7 @@
     .PF-team-button {
         display: inline-block;
         padding: 12px 20px;
-        background-color: #121212;
+        background-color: #EA0000;
         font-size: 16px;
         color: #fff;
         text-decoration: none;
