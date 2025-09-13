@@ -132,7 +132,7 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .st-newsletter-section {
-        padding: 60px 15px;
+        padding: 40px 0px;
     }
     
     .st-newsletter-content {

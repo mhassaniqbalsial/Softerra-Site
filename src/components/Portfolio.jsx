@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../styles/Portfolio.css';
 
 // Import your images at the top
@@ -43,59 +43,6 @@ const Portfolio = () => {
         { filter: 'landing', label: 'Landing Pages' }
     ];
 
-    // Initialize Splide
-    useEffect(() => {
-        let currentSplideInstance = null;
-
-        const initSplide = async () => {
-            // Dynamically import Splide
-            const { Splide } = await import('@splidejs/splide');
-
-            const splide = new Splide('#portfolio-tabs-slider', {
-                perPage: 6,
-                perMove: 1,
-                gap: 16,
-                pagination: false,
-                arrows: false,
-                breakpoints: {
-                    991: {
-                        perPage: 4,
-                    },
-                    767: {
-                        perPage: 3,
-                        pagination: true,
-                    },
-                    480: {
-                        perPage: 2,
-                    }
-                }
-            });
-
-            splide.mount();
-            currentSplideInstance = splide;
-        };
-
-        // Load Splide CSS and JS
-        const loadSplide = () => {
-            // Load CSS
-            if (!document.querySelector('link[href*="splide"]')) {
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css';
-                document.head.appendChild(link);
-            }
-
-            initSplide();
-        };
-
-        loadSplide();
-
-        return () => {
-            if (currentSplideInstance) {
-                currentSplideInstance.destroy();
-            }
-        };
-    }, []);
 
     // Get filtered projects
     const getFilteredProjects = () => {
@@ -131,7 +78,7 @@ const Portfolio = () => {
     const showShowLess = itemsToShow > 6;
 
     return (
-        <section className="ST-portfolio-section-main">
+        <section className="ST-portfolio-section-main" id="portfolio">
             <div className="container">
                 <div className="ST-portfolio-section-wrapper">
                     {/* Portfolio Title */}
@@ -141,21 +88,17 @@ const Portfolio = () => {
 
                     {/* Portfolio Tabs */}
                     <div className="ST-portfolio-tabs-wrapper">
-                        <div className="splide" id="portfolio-tabs-slider">
-                            <div className="splide__track">
-                                <div className="splide__list">
-                                    {tabs.map((tab) => (
-                                        <li key={tab.filter} className="splide__slide ST-portfolio-tabs-slide">
-                                            <div
-                                                className={`ST-portfolio-tab-button ${currentFilter === tab.filter ? 'active' : ''}`}
-                                                onClick={() => handleTabClick(tab.filter)}
-                                            >
-                                                <div className="ST-portfolio-tab-text">{tab.label}</div>
-                                            </div>
-                                        </li>
-                                    ))}
+                        <div className="ST-portfolio-tabs-container">
+                            {tabs.map((tab) => (
+                                <div key={tab.filter} className="ST-portfolio-tabs-slide">
+                                    <div
+                                        className={`ST-portfolio-tab-button ${currentFilter === tab.filter ? 'active' : ''}`}
+                                        onClick={() => handleTabClick(tab.filter)}
+                                    >
+                                        <div className="ST-portfolio-tab-text">{tab.label}</div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
 

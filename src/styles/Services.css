@@ -1,9 +1,11 @@
 
-    /* Light theme (default) */
+    .ST-services-main {
+        padding-top: 60px;
+    }
 
     .ST-services-header {
         text-align: center;
-        padding: 60px 0;
+        padding-bottom: 40px;
     }
 
     .ST-services-header-title-wrapper {
@@ -11,10 +13,9 @@
     }
 
     .ST-services-header-title {
-        font-family: 'Roboto', sans-serif;
         font-style: normal;
         font-weight: 700;
-        font-size: 48px;
+        font-size: 56px;
         line-height: 1.4;
         text-transform: uppercase;
         color: #000;
@@ -22,12 +23,7 @@
         margin: 0;
     }
 
-    .ST-services-header-description-wrapper {
-        margin-bottom: 40px;
-    }
-
     .ST-services-header-description {
-        font-family: 'Roboto', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 18px;
@@ -84,7 +80,6 @@
     }
 
     .ST-services-card-title {
-        font-family: 'Roboto', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 24px;
@@ -95,7 +90,6 @@
     }
 
     .ST-services-card-description {
-        font-family: 'Roboto', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -103,6 +97,12 @@
         color: #000;
         margin: 0;
         text-align: start;
+    }
+
+    @media (max-width: 1440px) {
+        .ST-services-header-title {
+            font-size: var(--font-3xl);
+        }
     }
 
     /* Tablet Styles */

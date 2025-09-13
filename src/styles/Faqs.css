@@ -22,7 +22,6 @@
     .ST-landing-faq-badge {
         background: #00AEEF;
         color: white;
-        font-family: 'Roboto';
         font-weight: 500;
         font-size: 20px;
         text-transform: uppercase;
@@ -40,7 +39,6 @@
     }
 
     .ST-landing-faq-title {
-        font-family: 'Roboto';
         font-weight: 700;
         font-size: 48px;
         line-height: 1.2;
@@ -48,7 +46,6 @@
     }
 
     .ST-landing-faq-description {
-        font-family: 'Roboto';
         font-weight: 400;
         font-size: 18px;
         line-height: 1.6;
@@ -83,7 +80,6 @@
 
 
     .ST-landing-faq-question {
-        font-family: Roboto;
         font-weight: 500;
         font-size: 18px;
         line-height: 1.5;
@@ -129,7 +125,6 @@
     }
 
     .ST-landing-faq-answer {
-        font-family: 'Roboto';
         font-weight: 400;
         font-size: 16px;
         line-height: 1.6;

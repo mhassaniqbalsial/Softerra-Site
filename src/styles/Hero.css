@@ -79,7 +79,7 @@
     font-weight: 700;
     font-size: var(--font-4xl);
     line-height: 110%;
-    color: var(--text-secondary)
+    color: var(--text-primary)
 }
 
 .ST-Hero-subtitle-wrapper {
@@ -91,7 +91,7 @@
     font-weight: 300;
     font-size: var(--font-4xl);
     line-height: 130%;
-    color: var(--text-secondary)
+    color: var(--text-primary)
 }
 
 .ST-Hero-buttons-wrapper {
@@ -126,7 +126,6 @@
 }
 
 .ST-Hero-quote-button-text {
-    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: var(--font-xl);
@@ -160,7 +159,6 @@
 }
 
 .ST-Hero-projects-button-text {
-    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: var(--font-xl);
@@ -181,7 +179,7 @@
 
 @media (max-width:1440px) {
     .ST-Hero-subtitle-text {
-        font-size: 48px;
+        font-size: var(--font-3xl);
     }
 
     .ST-Hero-highlight-text {
@@ -191,8 +189,8 @@
 
 @media (max-width:768px) {
     .ST-Hero-section-main {
-        padding-top: 20px;
-        padding-bottom: 20px
+        padding-top: 40px;
+        padding-bottom: 40px
     }
 
     .ST-Hero-upwork-box-wrapper {

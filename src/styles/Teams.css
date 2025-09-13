@@ -30,6 +30,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 2px; 
         padding: 20px 0;
         margin-bottom: 2rem;
@@ -55,8 +56,8 @@
     }
 
     .PF-team-image {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
         object-fit: cover;
         cursor: pointer;
         filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
@@ -149,10 +150,22 @@
         }
 
         .PF-team-image { 
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
         }
         .PF-team-images {
             gap: 5px;
+            margin-bottom: 1rem;
+        }
+        .name {
+            padding: 5px 10px;
+            bottom: -44px;
+            left: 50%;
+            letter-spacing: 0.5px;
+            font-size: 10px;
+        }
+        .name::before {
+            width: 8px;
+            height: 8px;
         }
     }

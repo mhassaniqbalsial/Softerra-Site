@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Partners.css';
-import priyaShah from '../assets/priya-shah.svg';
+import priyaShah from '../assets/priya-shah.webp';
 
 const Partners = () => {
     const [itemsToShow, setItemsToShow] = useState(5);

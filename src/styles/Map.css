@@ -13,7 +13,6 @@
     }
 
     .ST-map-header-title {
-        font-family: 'Roboto';
         font-style: normal;
         font-weight: 700;
         font-size: 56px;
@@ -27,7 +26,6 @@
     }
 
     .ST-map-header-description {
-        font-family: 'Roboto';
         font-style: normal;
         font-weight: 500;
         font-size: 18px;
@@ -43,9 +41,6 @@
 
     .ST-map-image-container {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .ST-map-image {
@@ -53,6 +48,12 @@
         max-width: 1400px;
         height: auto;
         object-fit: contain;
+    }
+
+    @media (max-width: 1440px) {
+        .ST-map-header-title {
+            font-size: var(--font-3xl);
+        }
     }
 
     /* Mobile Styles */
@@ -63,6 +64,10 @@
 
         .ST-map-header-title {
             font-size: 28px;
+        }
+
+        .ST-map-header-wrapper {
+            margin-bottom: 20px;
         }
 
         .ST-map-header-title-wrapper {

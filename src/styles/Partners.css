@@ -12,7 +12,6 @@
 }
 
 .ST-partners-header-title {
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 56px;
@@ -76,7 +75,6 @@
 }
 
 .ST-partners-testimonial-name {
-    font-family: 'Roboto';
     font-weight: 700;
     font-size: 16px;
     line-height: 1.4;
@@ -85,7 +83,6 @@
 }
 
 .ST-partners-testimonial-position {
-    font-family: 'Roboto';
     font-weight: 400;
     font-size: 14px;
     line-height: 1.4;
@@ -93,17 +90,13 @@
 }
 
 .ST-partners-testimonial-date {
-    font-family: 'Roboto';
     font-weight: 400;
     font-size: 12px;
     line-height: 1.4;
     color: #9CA3AF;
 }
 
-.ST-partners-testimonial-content-wrapper {}
-
 .ST-partners-testimonial-content {
-    font-family: 'Roboto';
     font-weight: 400;
     font-size: 16px;
     line-height: 1.6;
@@ -121,7 +114,6 @@
     max-width: 350px;
     background: #00AEEF;
     color: white;
-    font-family: 'Roboto';
     font-weight: 600;
     font-size: 16px;
     padding: 16px 32px;
@@ -141,6 +133,12 @@
 .ST-partners-load-more-button:hover,
 .ST-partners-show-less-button:hover {
     background: #5855D6;
+}
+
+@media (max-width: 1440px) {
+    .ST-partners-header-title {
+        font-size: var(--font-3xl);
+    }
 }
 
 /* Mobile Styles */

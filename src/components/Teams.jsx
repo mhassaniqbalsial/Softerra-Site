@@ -1,13 +1,14 @@
 import React from 'react';
-import mHassan from '../assets/m.hassan.svg';
-import mujeeb from '../assets/mujeeb.svg';
-import shahbaz from '../assets/shahbaz.svg';
-import aqib from '../assets/aqib.png';
-import sammi from '../assets/sam.svg';
-import hamayun from '../assets/hamayun.svg';
-import hussain from '../assets/hussain.png';
-import ahsan from '../assets/ahsan.png';
-import khubaib from '../assets/khubaib.png';
+import mHassan from '../assets/m.hassan.webp';
+import mujeeb from '../assets/mujeeb.webp';
+import shahbaz from '../assets/shahbaz.webp';
+import aqib from '../assets/aqib.webp';
+import sammi from '../assets/sam.webp';
+import hamayun from '../assets/hamayun.webp';
+import hussain from '../assets/hussain.webp';
+import ahsan from '../assets/ahsan.webp';
+import khubaib from '../assets/khubaib.webp';
+import awais from '../assets/awais.webp';
 import '../styles/Teams.css';
 
 const Teams = () => {
@@ -64,6 +65,12 @@ const Teams = () => {
                                 <img src={khubaib} alt="khubaib" className="PF-team-image" />
                                 <span className="name">Khubaib<br /> Jnr. Web Developer</span>
                             </div>
+
+                            <div className="PF-team-image-container">
+                                <img src={awais} alt="awais" className="PF-team-image" />
+                                <span className="name">Awais<br /> Intern</span>
+                            </div>
+
                         </div>
                         
                         <a href="www.google.com" className="PF-team-button">View Open Positions</a>

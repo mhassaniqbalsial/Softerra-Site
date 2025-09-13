@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Map.css';
-import mapImage from '../assets/map-image.svg';
+import mapImage from '../assets/map-image.webp';
 
 const Map = () => {
   return (

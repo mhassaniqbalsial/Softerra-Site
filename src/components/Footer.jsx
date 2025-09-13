@@ -1,6 +1,6 @@
 
 import React from 'react';
-import footerLogo from '../assets/footerLogo.svg';
+import logo from '../assets/logo.svg';
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className="ST-footer-brand-section">
                         <div className="ST-footer-logo-wrapper">
                             <h2 className="ST-footer-logo">
-                                <img width="160" height="30" src={footerLogo} alt="Softerra Logo" />
+                                <img width="160" height="30" src={logo} alt="Softerra Logo" />
                             </h2>
                         </div>
                         <div className="ST-footer-description-wrapper">
