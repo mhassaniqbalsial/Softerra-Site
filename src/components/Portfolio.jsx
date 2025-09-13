@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/Portfolio.css';
+import ImageWithLoader from './ImageWithLoader';
 
 // Import your images at the top
 import project1 from '../assets/project-1.webp';
@@ -18,6 +19,20 @@ import project6 from '../assets/project-6.webp';
 const Portfolio = () => {
     const [currentFilter, setCurrentFilter] = useState('all');
     const [itemsToShow, setItemsToShow] = useState(6);
+
+    // Preload images with high priority
+    useEffect(() => {
+        const imagesToPreload = [project1, project2, project3, project4, project5, project6];
+        
+        imagesToPreload.forEach((imageSrc) => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = imageSrc;
+            link.fetchPriority = 'high';
+            document.head.appendChild(link);
+        });
+    }, []);
 
     // Portfolio projects data with imported images
     const projects = [
@@ -112,10 +127,11 @@ const Portfolio = () => {
                                     data-index={project.id}
                                 >
                                     <div className="ST-portfolio-project-image-wrapper">
-                                        <img
+                                        <ImageWithLoader
                                             src={project.image}
                                             alt={project.alt}
-                                            className="ST-portfolio-project-image"
+                                            className="ST-portfolio-project-image portfolio-image-loader"
+                                            fetchPriority="high"
                                         />
                                     </div>
                                 </div>

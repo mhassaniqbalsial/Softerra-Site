@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/style.css';
 import '../styles/Hero.css';
 import upworkLogo from '../assets/upwork-logo.svg';
+import ImageWithLoader from './ImageWithLoader';
 
 const Hero = () => {
     return (
@@ -11,7 +12,7 @@ const Hero = () => {
                 <div className="ST-Hero-section-wrapper">
                     <div className="ST-Hero-upwork-box-wrapper">
                         <div className="ST-Hero-upwork-logo-wrapper">
-                            <img src={upworkLogo} alt="Upwork 5 stars" width="121" height="48" />
+                            <ImageWithLoader src={upworkLogo} alt="Upwork 5 stars" width="121" height="48" className="hero-image-loader" />
                         </div>
                         <div className="ST-Hero-success-rate-wrapper">
                             <div className="ST-Hero-success-rate-text">100% Success Rate</div>

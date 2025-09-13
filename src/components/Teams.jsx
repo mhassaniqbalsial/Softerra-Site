@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageWithLoader from './ImageWithLoader';
 import mHassan from '../assets/m.hassan.webp';
 import mujeeb from '../assets/mujeeb.webp';
 import shahbaz from '../assets/shahbaz.webp';
@@ -21,53 +22,53 @@ const Teams = () => {
                         <p className="PF-team-description">Unite your team's potential with seamless collaboration tools that transform ideas into achievements, creating a workspace where creativity flows and productivity soars.</p>
                         <div className="PF-team-images">
                             <div className="PF-team-image-container">
-                                <img src={mHassan} alt="team-hassan" className="PF-team-image" />
+                                <ImageWithLoader src={mHassan} alt="team-hassan" className="PF-team-image team-image-loader" />
                                 <span className="name">M Hassan<br /> CEO - Founder </span>
                             </div> 
 
                             <div className="PF-team-image-container">
-                                <img src={mujeeb} alt="team-mujeeb" className="PF-team-image" />
+                                <ImageWithLoader src={mujeeb} alt="team-mujeeb" className="PF-team-image team-image-loader" />
                                 <span className="name">Mujeeb Ur Rehman<br /> Snr. Shopify Developer</span>
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={sammi} alt="Team-sam" className="PF-team-image" />
+                                <ImageWithLoader src={sammi} alt="Team-sam" className="PF-team-image team-image-loader" />
                                 <span className="name">M Sammi Abid <br /> Web Developer</span>
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={hamayun} alt="hamayun" className="PF-team-image" />
+                                <ImageWithLoader src={hamayun} alt="hamayun" className="PF-team-image team-image-loader" />
                                 <span className="name">Hamayun Aziz <br /> Full Stack Developer </span>
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={shahbaz} alt="team-shahbaz" className="PF-team-image" />
+                                <ImageWithLoader src={shahbaz} alt="team-shahbaz" className="PF-team-image team-image-loader" />
                                 <span className="name">Shahbaz<br /> Jnr. Web Developer</span>
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={hussain} alt="hussain" className="PF-team-image" />
+                                <ImageWithLoader src={hussain} alt="hussain" className="PF-team-image team-image-loader" />
                                 <span className="name">Hussain Farooq<br /> Project Manager</span>
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={aqib} alt="aqib" className="PF-team-image" />
+                                <ImageWithLoader src={aqib} alt="aqib" className="PF-team-image team-image-loader" />
                                 <span className="name">Aqib Rashid<br /> Jnr. Web Developer</span>
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={ahsan} alt="ahsan" className="PF-team-image" />
+                                <ImageWithLoader src={ahsan} alt="ahsan" className="PF-team-image team-image-loader" />
                                 <span className="name">Ahsan<br /> Jnr. Web Developer</span>
                             </div> 
 
                         
                             <div className="PF-team-image-container">
-                                <img src={khubaib} alt="khubaib" className="PF-team-image" />
+                                <ImageWithLoader src={khubaib} alt="khubaib" className="PF-team-image team-image-loader" />
                                 <span className="name">Khubaib<br /> Jnr. Web Developer</span>
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={awais} alt="awais" className="PF-team-image" />
+                                <ImageWithLoader src={awais} alt="awais" className="PF-team-image team-image-loader" />
                                 <span className="name">Awais<br /> Intern</span>
                             </div>
 
