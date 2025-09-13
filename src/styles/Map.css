@@ -41,9 +41,9 @@
 
     .ST-map-image-container {
         width: 100%;
-    }
+    } 
 
-    .ST-map-image {
+    .ST-map-image { 
         width: 100%;
         max-width: 1400px;
         height: auto;
