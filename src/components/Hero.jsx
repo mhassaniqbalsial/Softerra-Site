@@ -25,7 +25,7 @@ const Hero = () => {
                             </div>
                         </div>
                         <div className="ST-Hero-highlight-wrapper">
-                            <div className="ST-Hero-highlight-text">Elementor Pro</div>
+                            <div className="ST-Hero-highlight-text">Shopify</div>
                         </div>
                         <div className="ST-Hero-subtitle-wrapper">
                             <div className="ST-Hero-subtitle-text">Web design & Development</div>

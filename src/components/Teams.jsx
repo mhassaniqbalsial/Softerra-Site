@@ -50,18 +50,19 @@ const Teams = () => {
                             </div>
 
                             <div className="PF-team-image-container">
-                                <img src={ahsan} alt="ahsan" className="PF-team-image" />
-                                <span className="name">Ahsan<br /> UI/UX Designer</span>
-                            </div> 
-
-                            <div className="PF-team-image-container">
                                 <img src={aqib} alt="aqib" className="PF-team-image" />
                                 <span className="name">Aqib Rashid<br /> Jnr. Web Developer</span>
                             </div>
 
                             <div className="PF-team-image-container">
+                                <img src={ahsan} alt="ahsan" className="PF-team-image" />
+                                <span className="name">Ahsan<br /> Jnr. Web Developer</span>
+                            </div> 
+
+                        
+                            <div className="PF-team-image-container">
                                 <img src={khubaib} alt="khubaib" className="PF-team-image" />
-                                <span className="name">Khubaib<br /> Internee</span>
+                                <span className="name">Khubaib<br /> Jnr. Web Developer</span>
                             </div>
                         </div>
                         
