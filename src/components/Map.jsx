@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Map.css';
 import mapImage from '../assets/map-image.webp';
-import ImageWithLoader from './ImageWithLoader';
 
 const Map = () => {
   return (
@@ -23,8 +22,8 @@ const Map = () => {
 
       <div className="ST-map-image-wrapper">
         <div className="ST-map-image-container">
-          <ImageWithLoader 
-            className="ST-map-image map-image-loader" 
+          <img 
+            className="ST-map-image" 
             src={mapImage}
             alt="World Map showing our global presence across 30+ countries" 
           />

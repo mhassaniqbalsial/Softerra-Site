@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import OptimizedImage from './OptimizedImage';
 import '../styles/Portfolio.css';
-import ImageWithLoader from './ImageWithLoader';
 
 // Import your images at the top
 import project1 from '../assets/project-1.webp';
@@ -20,28 +20,56 @@ const Portfolio = () => {
     const [currentFilter, setCurrentFilter] = useState('all');
     const [itemsToShow, setItemsToShow] = useState(6);
 
-    // Preload images with high priority
-    useEffect(() => {
-        const imagesToPreload = [project1, project2, project3, project4, project5, project6];
-        
-        imagesToPreload.forEach((imageSrc) => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = imageSrc;
-            link.fetchPriority = 'high';
-            document.head.appendChild(link);
-        });
-    }, []);
-
-    // Portfolio projects data with imported images
+    // Portfolio projects data with optimized image settings
     const projects = [
-        { id: 1, category: ['all', 'business'], image: project1, alt: 'Project 1' },
-        { id: 2, category: ['all', 'ecommerce'], image: project2, alt: 'Project 2' },
-        { id: 3, category: ['all', 'business'], image: project3, alt: 'Project 3' },
-        { id: 4, category: ['all', 'custom'], image: project4, alt: 'Project 4' },
-        { id: 5, category: ['all', 'landing'], image: project5, alt: 'Project 5' },
-        { id: 6, category: ['all', 'ecommerce'], image: project6, alt: 'Project 6' },
+        { 
+            id: 1, 
+            category: ['all', 'business'], 
+            image: project1, 
+            alt: 'Business Website Project - Modern corporate design',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 2, 
+            category: ['all', 'ecommerce'], 
+            image: project2, 
+            alt: 'E-commerce Website Project - Online store solution',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 3, 
+            category: ['all', 'business'], 
+            image: project3, 
+            alt: 'Business Website Project - Professional service site',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 4, 
+            category: ['all', 'custom'], 
+            image: project4, 
+            alt: 'Custom Theme Project - Unique design implementation',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 5, 
+            category: ['all', 'landing'], 
+            image: project5, 
+            alt: 'Landing Page Project - High-conversion design',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 6, 
+            category: ['all', 'ecommerce'], 
+            image: project6, 
+            alt: 'E-commerce Website Project - Multi-vendor platform',
+            width: 400,
+            height: 300
+        },
         // { id: 7, category: ['all', 'business'], image: project7, alt: 'Project 7' },
         // { id: 8, category: ['all', 'custom'], image: project8, alt: 'Project 8' },
         // { id: 9, category: ['all', 'landing'], image: project9, alt: 'Project 9' },
@@ -94,7 +122,11 @@ const Portfolio = () => {
 
     return (
         <section className="ST-portfolio-section-main" id="portfolio">
-            <div className="container">
+            {/* Preload the first 2 critical images */}
+            <link rel="preload" as="image" href={visibleProjects[0]?.image} />
+            {visibleProjects[1] && <link rel="preload" as="image" href={visibleProjects[1].image} />}
+            
+            <div className="container"> 
                 <div className="ST-portfolio-section-wrapper">
                     {/* Portfolio Title */}
                     <div className="ST-portfolio-title-wrapper">
@@ -120,18 +152,22 @@ const Portfolio = () => {
                     {/* Portfolio Projects Grid */}
                     <div className="ST-portfolio-projects-grid-wrapper">
                         <div className="ST-portfolio-projects-grid">
-                            {visibleProjects.map((project) => (
+                            {visibleProjects.map((project, index) => (
                                 <div
                                     key={project.id}
                                     className="ST-portfolio-project-item active show"
                                     data-index={project.id}
                                 >
                                     <div className="ST-portfolio-project-image-wrapper">
-                                        <ImageWithLoader
+                                        <OptimizedImage
                                             src={project.image}
                                             alt={project.alt}
-                                            className="ST-portfolio-project-image portfolio-image-loader"
-                                            fetchPriority="high"
+                                            className="ST-portfolio-project-image"
+                                            width={project.width}
+                                            height={project.height}
+                                            priority={index < 2}
+                                            loading={index < 2 ? 'eager' : 'lazy'}
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
                                     </div>
                                 </div>

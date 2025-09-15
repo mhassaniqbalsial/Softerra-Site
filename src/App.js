@@ -18,8 +18,8 @@ function App() {
       <Header />
       <main className="main-content">
         <Hero />
-        <Portfolio />
         <Services />
+        <Portfolio />
         <Map />
         <Faqs />
         <Partners />
