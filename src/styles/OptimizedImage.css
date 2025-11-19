@@ -1,0 +1,51 @@
+/* Optimized Image Styles */
+.optimized-image {
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+    will-change: opacity;
+}
+
+.optimized-image.loading {
+    opacity: 0.8;
+    filter: blur(1px);
+}
+
+.optimized-image.loaded {
+    opacity: 1;
+    filter: none;
+}
+
+/* Image error fallback */
+.image-error {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 14px;
+    border-radius: 4px;
+    min-height: 100px;
+}
+
+/* Responsive image optimization */
+@media (max-width: 768px) {
+    .optimized-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Preload animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.optimized-image.loaded {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Performance optimizations */
+.optimized-image {
+    content-visibility: auto;
+    contain-intrinsic-size: 400px 300px;
+}

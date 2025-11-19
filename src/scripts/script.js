@@ -50,3 +50,6 @@ export const initApp = () => {
 
 // Auto-initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initApp);
+
+
+

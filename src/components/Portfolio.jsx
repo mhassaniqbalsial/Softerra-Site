@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import OptimizedImage from './OptimizedImage';
 import '../styles/Portfolio.css';
 
 // Import your images at the top
@@ -19,14 +20,56 @@ const Portfolio = () => {
     const [currentFilter, setCurrentFilter] = useState('all');
     const [itemsToShow, setItemsToShow] = useState(6);
 
-    // Portfolio projects data with imported images
+    // Portfolio projects data with optimized image settings
     const projects = [
-        { id: 1, category: ['all', 'business'], image: project1, alt: 'Project 1' },
-        { id: 2, category: ['all', 'ecommerce'], image: project2, alt: 'Project 2' },
-        { id: 3, category: ['all', 'business'], image: project3, alt: 'Project 3' },
-        { id: 4, category: ['all', 'custom'], image: project4, alt: 'Project 4' },
-        { id: 5, category: ['all', 'landing'], image: project5, alt: 'Project 5' },
-        { id: 6, category: ['all', 'ecommerce'], image: project6, alt: 'Project 6' },
+        { 
+            id: 1, 
+            category: ['all', 'business'], 
+            image: project1, 
+            alt: 'Business Website Project - Modern corporate design',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 2, 
+            category: ['all', 'ecommerce'], 
+            image: project2, 
+            alt: 'E-commerce Website Project - Online store solution',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 3, 
+            category: ['all', 'business'], 
+            image: project3, 
+            alt: 'Business Website Project - Professional service site',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 4, 
+            category: ['all', 'custom'], 
+            image: project4, 
+            alt: 'Custom Theme Project - Unique design implementation',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 5, 
+            category: ['all', 'landing'], 
+            image: project5, 
+            alt: 'Landing Page Project - High-conversion design',
+            width: 400,
+            height: 300
+        },
+        { 
+            id: 6, 
+            category: ['all', 'ecommerce'], 
+            image: project6, 
+            alt: 'E-commerce Website Project - Multi-vendor platform',
+            width: 400,
+            height: 300
+        },
         // { id: 7, category: ['all', 'business'], image: project7, alt: 'Project 7' },
         // { id: 8, category: ['all', 'custom'], image: project8, alt: 'Project 8' },
         // { id: 9, category: ['all', 'landing'], image: project9, alt: 'Project 9' },
@@ -43,59 +86,6 @@ const Portfolio = () => {
         { filter: 'landing', label: 'Landing Pages' }
     ];
 
-    // Initialize Splide
-    useEffect(() => {
-        let currentSplideInstance = null;
-
-        const initSplide = async () => {
-            // Dynamically import Splide
-            const { Splide } = await import('@splidejs/splide');
-
-            const splide = new Splide('#portfolio-tabs-slider', {
-                perPage: 6,
-                perMove: 1,
-                gap: 16,
-                pagination: false,
-                arrows: false,
-                breakpoints: {
-                    991: {
-                        perPage: 4,
-                    },
-                    767: {
-                        perPage: 3,
-                        pagination: true,
-                    },
-                    480: {
-                        perPage: 2,
-                    }
-                }
-            });
-
-            splide.mount();
-            currentSplideInstance = splide;
-        };
-
-        // Load Splide CSS and JS
-        const loadSplide = () => {
-            // Load CSS
-            if (!document.querySelector('link[href*="splide"]')) {
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css';
-                document.head.appendChild(link);
-            }
-
-            initSplide();
-        };
-
-        loadSplide();
-
-        return () => {
-            if (currentSplideInstance) {
-                currentSplideInstance.destroy();
-            }
-        };
-    }, []);
 
     // Get filtered projects
     const getFilteredProjects = () => {
@@ -131,8 +121,12 @@ const Portfolio = () => {
     const showShowLess = itemsToShow > 6;
 
     return (
-        <section className="ST-portfolio-section-main">
-            <div className="container">
+        <section className="ST-portfolio-section-main" id="portfolio">
+            {/* Preload the first 2 critical images */}
+            <link rel="preload" as="image" href={visibleProjects[0]?.image} />
+            {visibleProjects[1] && <link rel="preload" as="image" href={visibleProjects[1].image} />}
+            
+            <div className="container"> 
                 <div className="ST-portfolio-section-wrapper">
                     {/* Portfolio Title */}
                     <div className="ST-portfolio-title-wrapper">
@@ -141,38 +135,39 @@ const Portfolio = () => {
 
                     {/* Portfolio Tabs */}
                     <div className="ST-portfolio-tabs-wrapper">
-                        <div className="splide" id="portfolio-tabs-slider">
-                            <div className="splide__track">
-                                <div className="splide__list">
-                                    {tabs.map((tab) => (
-                                        <li key={tab.filter} className="splide__slide ST-portfolio-tabs-slide">
-                                            <div
-                                                className={`ST-portfolio-tab-button ${currentFilter === tab.filter ? 'active' : ''}`}
-                                                onClick={() => handleTabClick(tab.filter)}
-                                            >
-                                                <div className="ST-portfolio-tab-text">{tab.label}</div>
-                                            </div>
-                                        </li>
-                                    ))}
+                        <div className="ST-portfolio-tabs-container">
+                            {tabs.map((tab) => (
+                                <div key={tab.filter} className="ST-portfolio-tabs-slide">
+                                    <div
+                                        className={`ST-portfolio-tab-button ${currentFilter === tab.filter ? 'active' : ''}`}
+                                        onClick={() => handleTabClick(tab.filter)}
+                                    >
+                                        <div className="ST-portfolio-tab-text">{tab.label}</div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
 
                     {/* Portfolio Projects Grid */}
                     <div className="ST-portfolio-projects-grid-wrapper">
                         <div className="ST-portfolio-projects-grid">
-                            {visibleProjects.map((project) => (
+                            {visibleProjects.map((project, index) => (
                                 <div
                                     key={project.id}
                                     className="ST-portfolio-project-item active show"
                                     data-index={project.id}
                                 >
                                     <div className="ST-portfolio-project-image-wrapper">
-                                        <img
+                                        <OptimizedImage
                                             src={project.image}
                                             alt={project.alt}
                                             className="ST-portfolio-project-image"
+                                            width={project.width}
+                                            height={project.height}
+                                            priority={index < 2}
+                                            loading={index < 2 ? 'eager' : 'lazy'}
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
                                     </div>
                                 </div>
