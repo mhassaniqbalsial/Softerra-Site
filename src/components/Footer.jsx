@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import '../styles/Footer.css';
 
@@ -48,7 +49,7 @@ const Footer = () => {
                         <div className="ST-footer-links-wrapper">
                             <ul className="ST-footer-links-list">
                                 <li><a href="#terms">Terms of Service</a></li>
-                                <li><a href="#privacy">Privacy Policy</a></li>
+                                <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                                 <li><a href="#refund">Refund Policy</a></li>
                                 <li><a href="#cookie">Cookie Policy</a></li>
                             </ul>

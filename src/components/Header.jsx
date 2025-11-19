@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/style.css';
 import '../styles/Header.css';
 import logo from '../assets/logo.svg';
@@ -44,11 +45,11 @@ const Header = () => {
 
                         {/* Logo */}
                         <div className="logo">
-                            <a href="/">
+                            <Link to="/">
                             <div className="logo-icon">
                                 <img src={logo} alt="Softerra Logo" width="60" height="60" />
                             </div>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Desktop Navigation */}
@@ -56,7 +57,7 @@ const Header = () => {
                             <div className="navigation">
                                 <nav className="navigation">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><Link to="/">Home</Link></li>
                                         <li><a href="#about">About</a></li>
                                         <li>
                                             <a href="#services" className="dropdown-link">
@@ -117,7 +118,7 @@ const Header = () => {
                 <div className="mobile-menu-content">
                     <nav className="mobile-navigation">
                         <ul>
-                            <li><a href="/" onClick={closeMobileMenu}>Home</a></li>
+                            <li><Link to="/" onClick={closeMobileMenu}>Home</Link></li>
                             <li><a href="#about" onClick={closeMobileMenu}>About</a></li>
                             <li>
                                 <a href="#services" onClick={closeMobileMenu}>Services</a>
